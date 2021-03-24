@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #fff;
+    }
+    button {
+      min-width: 200px;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      border-width: 0;
+      background-color: dodgerblue;
+      cursor: pointer;
+    }
+    .info {
+      width: 100%;
+      font-size: 14px;
+      color: gray;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h3>sqlite 操作</h3>
+  <button onclick="dosome()">ipc call</button>
+  <div id="info" class="info"></div>
+
+  <script type="module">
+    import { ipcCall } from './bridge/bridge.js'
+
+    function showInfo(text) {
+      document.getElementById('info').innerHTML = text
+    }
+
+    window.dosome = () => {
+      let results = ipcCall('message', 'insert', {})
+      showInfo(JSON.stringify(results))
+    }
+
+  </script>
+</body>
+</html>

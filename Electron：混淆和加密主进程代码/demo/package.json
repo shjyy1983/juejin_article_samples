@@ -1,0 +1,51 @@
+{
+  "name": "demo1",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development electron index.js",
+    "obf": "webpack --config build/webpack.config.prod.js",
+    "byte": "electron obf/index.js",
+    "test-before-packet": "NODE_ENV=production electron index.js",
+    "packet_mac": "electron-builder --mac",
+    "packet_win": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.shj.app",
+    "extraFiles": [],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "files": [
+      "htmls/**/*",
+      "dist-obf/*.jsc",
+      "index.js"
+    ]
+  },
+  "author": "SHEN",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.8.4",
+    "babel-loader": "8.0.6",
+    "bytenode-webpack-plugin": "^1.0.5",
+    "clean-webpack-plugin": "3.0.0",
+    "electron": "^9.3.1",
+    "electron-builder": "^22.8.1",
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.10",
+    "webpack-merge": "4.2.2"
+  },
+  "dependencies": {
+    "bytenode": "^1.1.7"
+  }
+}
