@@ -1,0 +1,3 @@
+include ':libCommUI'
+include ':app'
+rootProject.name = "DemoAAR"

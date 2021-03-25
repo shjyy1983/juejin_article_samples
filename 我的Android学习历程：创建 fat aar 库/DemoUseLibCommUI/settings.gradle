@@ -1,0 +1,3 @@
+include ':libCommUI-debug'
+include ':app'
+rootProject.name = "DemoUseLibCommUI"
